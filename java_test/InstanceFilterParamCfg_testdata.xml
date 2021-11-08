@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- DBUnit flatXml DataFile -->
+<dataset>
+
+  <t_instance_filter_param_cfg 
+	id='12' 
+	version='5' 
+	instance_id='468' 
+	filter_param_id='947' 
+	filter_param_cfg_value='FilterParamCfgValue800' 
+	filter_id='830' 
+	description='Description854' 
+	is_deleted='true' 
+	create_by='CreateBy078' 
+	create_time='2021-11-08' 
+	update_by='UpdateBy851' 
+	update_time='2021-11-08' 
+  />
+  
+</dataset>

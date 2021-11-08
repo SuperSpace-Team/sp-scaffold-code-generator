@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- DBUnit flatXml DataFile -->
+<dataset>
+
+  <t_filter_param_info 
+	id='094' 
+	version='27' 
+	filter_id='9' 
+	filter_param_name='FilterParamName908' 
+	filter_param_nickname='FilterParamNickname954' 
+	filter_param_data_type='FilterParamDataType829' 
+	description='Description170' 
+	is_required='true' 
+	is_deleted='false' 
+	create_by='CreateBy859' 
+	create_time='2021-11-08' 
+	update_by='UpdateBy509' 
+	update_time='2021-11-08' 
+  />
+  
+</dataset>

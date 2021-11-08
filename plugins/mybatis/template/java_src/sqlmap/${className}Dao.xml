@@ -1,0 +1,218 @@
+<#include "/macro.include"/>
+<#assign className = table.className>   
+<#assign classNameFirstLower = table.classNameFirstLower>
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<#macro mapperEl value>${r"#{"}${value}}</#macro>
+
+<mapper namespace="${basepackage}.dao.repository.${subpackage}.${className}Dao">
+	<resultMap id="${className}Result" type="${basepackage}.dao.po.${subpackage}.${className}PO">
+	</resultMap>
+	
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="${classNameFirstLower}Columns">
+	    <![CDATA[
+		<#list table.columns as column>
+	        	${column.dbSqlName} as ${column.columnNameFirstLower}<#if column_has_next>,</#if>
+        </#list>
+	    ]]>
+	</sql>
+	<#if table.isTable>
+
+		<!-- 如果有自增字段 -->
+		<#if table.hasAutoIncrementId>
+			<!-- 新增/插入操作 -->
+    		<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+			<insert id="insert" parameterType="${basepackage}.dao.po.${subpackage}.${className}PO"
+				useGeneratedKeys="true" keyProperty="${table.idColumn.columnNameFirstLower}"
+			 flushCache="true">
+		    <![CDATA[
+		        INSERT INTO
+		        ${table.sqlName} (
+		        <#list table.insertColumns as column>
+		        	${column.dbSqlName} <#if column_has_next>,</#if>
+		        </#list>
+		        ) VALUES (
+		        <#list table.insertColumns as column>
+		        	<@mapperEl column.columnNameFirstLower+',javaType='+column.javaType+',jdbcType='+column.jdbcSqlTypeName/> <#if column_has_next>,</#if>
+		        </#list>
+		        )
+		    ]]>
+
+			</insert>
+		<#else>
+			<!-- 新增/插入操作 -->
+			<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+			<insert id="insert" parameterType="${basepackage}.dao.po.${subpackage}.${className}PO"
+			 flushCache="true">
+		    <![CDATA[
+		        INSERT INTO
+		        ${table.sqlName} (
+		        id,
+		        <#list table.insertColumns as column>
+		        	${column.dbSqlName} <#if column_has_next>,</#if>
+		        </#list>
+		        ) VALUES (
+		        ${"#\{id,javaType=java.lang.Long,jdbcType=BIGINT}"} ,
+		        <#list table.insertColumns as column>
+		        	<@mapperEl column.columnNameFirstLower+',javaType='+column.javaType+',jdbcType='+column.jdbcSqlTypeName/> <#if column_has_next>,</#if>
+		        </#list>
+		        )
+		    ]]>
+		</insert>
+	    </#if>
+
+		<!-- 更新操作 -->
+		<update id="update" parameterType="${basepackage}.dao.po.${subpackage}.${className}PO">
+	    <![CDATA[
+	        UPDATE ${table.sqlName} SET
+		        <#list table.updateColumns as column>
+		        ${column.sqlName} = <@mapperEl column.columnNameFirstLower+',javaType='+column.javaType+',jdbcType='+column.jdbcSqlTypeName/> <#if column_has_next>,</#if>
+		        </#list>
+	        WHERE
+	        	<#list table.compositeIdColumns as column>
+		        ${column.dbSqlName} = <@mapperEl column.columnNameLower/> <#if column_has_next>,</#if>
+		        </#list>
+	    ]]>
+		</update>
+
+		<!-- 根据列值条件删除操作 -->
+	   <delete id="delete" parameterType="${table.idColumn.javaType}">
+	    <![CDATA[
+	        delete from ${table.sqlName} where
+	        <#list table.compositeIdColumns as column>
+		        ${column.dbSqlName} = <@mapperEl column.columnNameLower/> <#if column_has_next>,</#if>
+		    </#list>
+	    ]]>
+	    </delete>
+
+		<!-- 根据主键ID集合条件删除操作 -->
+		<delete id="deleteByIds" parameterType="list">
+	        delete from ${table.sqlName}
+	        where id in
+				<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+					  <@mapperEl "item"/>
+				</foreach>
+	    </delete>
+
+		<!-- 根据主键ID查询单条记录 -->
+	    <select id="findById" parameterType="${table.idColumn.javaType}" resultMap="${className}Result" flushCache="false">
+			select <include refid="${classNameFirstLower}Columns" />
+		    <![CDATA[
+			    from ${table.sqlName}
+		        where
+					<#list table.compositeIdColumns as column>
+		        ${column.dbSqlName} = <@mapperEl column.columnNameLower/> <#if column_has_next>,</#if>
+		        </#list>
+		    ]]>
+		</select>
+
+		<!-- 根据主键ID集合查询记录列表 -->
+		<select id="getByIds" parameterType="list"  resultMap="${className}Result" flushCache="false">
+			select <include refid="${classNameFirstLower}Columns" />
+			    from ${table.sqlName}
+		        where id in
+				<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+					  <@mapperEl "item"/>
+				</foreach>
+		</select>
+	</#if>
+
+	<!-- 查询筛选条件动态组合SQL段 -->
+	<sql id="${classNameFirstLower}DynamicWhere">
+		<where>
+	       <#list table.columns as column>
+	       <#if column.javaType=='java.lang.String'>
+		       <if test="${column.columnNameFirstLower}!=null and ${column.columnNameFirstLower}!=''">
+					and ${column.dbSqlName} = <@mapperEl column.columnNameFirstLower/>
+				</if>
+			<#else>		
+				<if test="${column.columnNameFirstLower}!=null">
+					and ${column.dbSqlName} = <@mapperEl column.columnNameFirstLower/>
+				</if>
+			</#if>
+	       </#list>			
+		</where>
+	</sql>
+
+	<!-- 获取查询结果集的记录数 -->
+	<select id="getCount" resultType="long">
+        select count(*) from ${table.sqlName} 
+    </select>
+
+	<!-- 根据分页/排序/Map参数集合查询结果集记录数 -->
+    <select id="findListCountByQueryMap" resultType="long">
+        select count(*) from ${table.sqlName} 
+		<include refid="${classNameFirstLower}DynamicWhere"/>    
+    </select>
+
+	<!-- 根据一般参数集合查询记录列表 -->
+    <select id="findListCountByParam" resultType="long">
+        select count(*) from ${table.sqlName} 
+		<include refid="${classNameFirstLower}DynamicWhere"/>    
+    </select>
+    
+    <!--
+    	根据分页/排序/Map参数集合查询结果集记录列表:
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="findListByQueryMapWithPage" resultMap="${className}Result">
+    	select <include refid="${classNameFirstLower}Columns" />
+	    from ${table.sqlName} 
+		<include refid="${classNameFirstLower}DynamicWhere"/>
+    </select>
+
+	<!-- 根据Map参数条件集合查询记录列表 -->
+    <select id="findListByQueryMap" resultMap="${className}Result">
+    	select <include refid="${classNameFirstLower}Columns" />
+	    from ${table.sqlName} 
+		<include refid="${classNameFirstLower}DynamicWhere"/>
+		
+    </select>
+
+	<!-- 根据入参对象指定条件查询记录列表 -->
+    <select id="findListByParam" resultMap="${className}Result">
+    	select <include refid="${classNameFirstLower}Columns" />
+	    from ${table.sqlName} 
+		<include refid="${classNameFirstLower}DynamicWhere"/>
+		
+    </select>
+
+	<!-- 根据入参对象指定条件查询单条记录 -->
+    <#list table.columns as column>
+    <#if column.unique && !column.pk>
+    <select id="getBy${column.columnName}" resultMap="${className}Result" parameterType="${column.javaType}">
+	    select <include refid="${classNameFirstLower}Columns"/>
+	    <![CDATA[
+	        from ${table.sqlName} where ${column.sqlName} = <@mapperEl column.columnNameLower/>
+	    ]]>
+    </select>
+    </#if>
+	</#list>
+
+	<!-- 根据Version(版本号)更新记录指定字段 -->
+	<#if table.versionColumn??>
+	<update id="updateByVersion" parameterType="${basepackage}.dao.po.${subpackage}.${className}PO">
+	<![CDATA[
+		UPDATE ${table.sqlName} SET
+			<#list table.updateColumns as column>
+				 <#if column.columnNameLower!=table.versionColumn.columnNameLower>
+					 ${column.sqlName} = <@mapperEl column.columnNameFirstLower+',javaType='+column.javaType+',jdbcType='+column.jdbcSqlTypeName/> <#if column_has_next>,</#if>
+				 <#else>
+					  ${column.sqlName} = now() <#if column_has_next>,</#if>
+				 </#if>
+			</#list>
+		WHERE
+			<#list table.compositeIdColumns as column>
+			${column.dbSqlName} = <@mapperEl column.columnNameLower/> <#if column_has_next>,</#if>
+			</#list>
+
+			and ${table.versionColumn.dbSqlName}	=  <@mapperEl table.versionColumn.columnNameLower/>
+	]]>
+	</update>
+	</#if>
+</mapper>

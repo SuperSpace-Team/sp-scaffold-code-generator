@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- DBUnit flatXml DataFile -->
+<dataset>
+
+  <t_filter_info 
+	id='934' 
+	version='8' 
+	filter_type='056' 
+	filter_name='FilterName460' 
+	filter_nick_name='FilterNickName534' 
+	description='Description155' 
+	filter_order='46' 
+	status='0' 
+	is_deleted='false' 
+	create_by='CreateBy689' 
+	create_time='2021-11-08' 
+	update_by='UpdateBy093' 
+	update_time='2021-11-08' 
+  />
+  
+</dataset>
