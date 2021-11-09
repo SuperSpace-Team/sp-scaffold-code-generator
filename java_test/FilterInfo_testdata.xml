@@ -3,19 +3,19 @@
 <dataset>
 
   <t_filter_info 
-	id='934' 
-	version='8' 
-	filter_type='056' 
-	filter_name='FilterName460' 
-	filter_nick_name='FilterNickName534' 
-	description='Description155' 
-	filter_order='46' 
-	status='0' 
+	id='42' 
+	version='2' 
+	filter_type='32' 
+	filter_name='FilterName040' 
+	filter_nick_name='FilterNickName768' 
+	description='Description774' 
+	filter_order='530' 
+	status='22' 
 	is_deleted='false' 
-	create_by='CreateBy689' 
-	create_time='2021-11-08' 
-	update_by='UpdateBy093' 
-	update_time='2021-11-08' 
+	create_by='CreateBy583' 
+	create_time='2021-11-09' 
+	update_by='UpdateBy165' 
+	update_time='2021-11-09' 
   />
   
 </dataset>

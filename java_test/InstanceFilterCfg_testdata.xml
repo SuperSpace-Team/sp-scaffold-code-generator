@@ -3,17 +3,17 @@
 <dataset>
 
   <t_instance_filter_cfg 
-	id='691' 
-	version='37' 
-	instance_id='623' 
-	filter_id='990' 
-	filter_order='539' 
-	status='8' 
-	is_deleted='true' 
-	create_by='CreateBy656' 
-	create_time='2021-11-08' 
-	update_by='UpdateBy219' 
-	update_time='2021-11-08' 
+	id='838' 
+	version='493' 
+	instance_id='26' 
+	filter_id='960' 
+	filter_order='49' 
+	status='700' 
+	is_deleted='false' 
+	create_by='CreateBy308' 
+	create_time='2021-11-09' 
+	update_by='UpdateBy307' 
+	update_time='2021-11-09' 
   />
   
 </dataset>

@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@TableName(${table.sqlName})
+@TableName("${table.sqlName}")
 public class ${className}PO extends BasePO {
 
 	<#list table.notDefaultColumns as column>

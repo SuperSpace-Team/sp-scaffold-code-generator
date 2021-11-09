@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * @description: ${className}服务定义
  * @author: xxx
- * @date: Created in ${now}
+ * @date: Created in xxx
  */
 public interface ${className}Service extends BaseBizService<Long, ${className}BO> {
     /**

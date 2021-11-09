@@ -364,6 +364,186 @@
 <!--  generator-insert-location -->
 
 
+<bean id="instanceFilterParamCfgManager" class="com.yh.infra.test.service.InstanceFilterParamCfgManager"/>
+<bean id="instanceFilterParamCfgDao" class="com.yh.infra.test.dao.InstanceFilterParamCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterParamCfgManager" class="com.yh.infra.test.service.InstanceFilterParamCfgManager"/>
+<bean id="instanceFilterParamCfgDao" class="com.yh.infra.test.dao.InstanceFilterParamCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterParamCfgManager" class="com.yh.infra.test.service.InstanceFilterParamCfgManager"/>
+<bean id="instanceFilterParamCfgDao" class="com.yh.infra.test.dao.InstanceFilterParamCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterParamCfgManager" class="com.yh.infra.test.service.InstanceFilterParamCfgManager"/>
+<bean id="instanceFilterParamCfgDao" class="com.yh.infra.test.dao.InstanceFilterParamCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterCfgManager" class="com.yh.infra.test.service.InstanceFilterCfgManager"/>
+<bean id="instanceFilterCfgDao" class="com.yh.infra.test.dao.InstanceFilterCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterCfgManager" class="com.yh.infra.test.service.InstanceFilterCfgManager"/>
+<bean id="instanceFilterCfgDao" class="com.yh.infra.test.dao.InstanceFilterCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterCfgManager" class="com.yh.infra.test.service.InstanceFilterCfgManager"/>
+<bean id="instanceFilterCfgDao" class="com.yh.infra.test.dao.InstanceFilterCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="filterParamInfoManager" class="com.yh.infra.test.service.FilterParamInfoManager"/>
+<bean id="filterParamInfoDao" class="com.yh.infra.test.dao.FilterParamInfoDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="filterParamInfoManager" class="com.yh.infra.test.service.FilterParamInfoManager"/>
+<bean id="filterParamInfoDao" class="com.yh.infra.test.dao.FilterParamInfoDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="filterInfoManager" class="com.yh.infra.test.service.FilterInfoManager"/>
+<bean id="filterInfoDao" class="com.yh.infra.test.dao.FilterInfoDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterParamCfgManager" class="com.yh.infra.test.service.InstanceFilterParamCfgManager"/>
+<bean id="instanceFilterParamCfgDao" class="com.yh.infra.test.dao.InstanceFilterParamCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterParamCfgManager" class="com.yh.infra.test.service.InstanceFilterParamCfgManager"/>
+<bean id="instanceFilterParamCfgDao" class="com.yh.infra.test.dao.InstanceFilterParamCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterParamCfgManager" class="com.yh.infra.test.service.InstanceFilterParamCfgManager"/>
+<bean id="instanceFilterParamCfgDao" class="com.yh.infra.test.dao.InstanceFilterParamCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterParamCfgManager" class="com.yh.infra.test.service.InstanceFilterParamCfgManager"/>
+<bean id="instanceFilterParamCfgDao" class="com.yh.infra.test.dao.InstanceFilterParamCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterCfgManager" class="com.yh.infra.test.service.InstanceFilterCfgManager"/>
+<bean id="instanceFilterCfgDao" class="com.yh.infra.test.dao.InstanceFilterCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterCfgManager" class="com.yh.infra.test.service.InstanceFilterCfgManager"/>
+<bean id="instanceFilterCfgDao" class="com.yh.infra.test.dao.InstanceFilterCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterCfgManager" class="com.yh.infra.test.service.InstanceFilterCfgManager"/>
+<bean id="instanceFilterCfgDao" class="com.yh.infra.test.dao.InstanceFilterCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="filterParamInfoManager" class="com.yh.infra.test.service.FilterParamInfoManager"/>
+<bean id="filterParamInfoDao" class="com.yh.infra.test.dao.FilterParamInfoDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="filterParamInfoManager" class="com.yh.infra.test.service.FilterParamInfoManager"/>
+<bean id="filterParamInfoDao" class="com.yh.infra.test.dao.FilterParamInfoDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="filterInfoManager" class="com.yh.infra.test.service.FilterInfoManager"/>
+<bean id="filterInfoDao" class="com.yh.infra.test.dao.FilterInfoDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterParamCfgManager" class="com.yh.infra.test.service.InstanceFilterParamCfgManager"/>
+<bean id="instanceFilterParamCfgDao" class="com.yh.infra.test.dao.InstanceFilterParamCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterParamCfgManager" class="com.yh.infra.test.service.InstanceFilterParamCfgManager"/>
+<bean id="instanceFilterParamCfgDao" class="com.yh.infra.test.dao.InstanceFilterParamCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterParamCfgManager" class="com.yh.infra.test.service.InstanceFilterParamCfgManager"/>
+<bean id="instanceFilterParamCfgDao" class="com.yh.infra.test.dao.InstanceFilterParamCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterParamCfgManager" class="com.yh.infra.test.service.InstanceFilterParamCfgManager"/>
+<bean id="instanceFilterParamCfgDao" class="com.yh.infra.test.dao.InstanceFilterParamCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterCfgManager" class="com.yh.infra.test.service.InstanceFilterCfgManager"/>
+<bean id="instanceFilterCfgDao" class="com.yh.infra.test.dao.InstanceFilterCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterCfgManager" class="com.yh.infra.test.service.InstanceFilterCfgManager"/>
+<bean id="instanceFilterCfgDao" class="com.yh.infra.test.dao.InstanceFilterCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="instanceFilterCfgManager" class="com.yh.infra.test.service.InstanceFilterCfgManager"/>
+<bean id="instanceFilterCfgDao" class="com.yh.infra.test.dao.InstanceFilterCfgDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="filterParamInfoManager" class="com.yh.infra.test.service.FilterParamInfoManager"/>
+<bean id="filterParamInfoDao" class="com.yh.infra.test.dao.FilterParamInfoDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="filterParamInfoManager" class="com.yh.infra.test.service.FilterParamInfoManager"/>
+<bean id="filterParamInfoDao" class="com.yh.infra.test.dao.FilterParamInfoDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
+<bean id="filterInfoManager" class="com.yh.infra.test.service.FilterInfoManager"/>
+<bean id="filterInfoDao" class="com.yh.infra.test.dao.FilterInfoDao"/>
+<!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
+<!--  generator-insert-location -->
+
+
 <bean id="instanceFilterParamCfgPOManager" class="com.yh.infra.test.service.InstanceFilterParamCfgPOManager"/>
 <bean id="instanceFilterParamCfgPODao" class="com.yh.infra.test.dao.InstanceFilterParamCfgPODao"/>
 <!-- 文件包含后面的这段字符: generator-...-location,则在模板输出的地方,如果发现同名文件,则可将生成内容插入在该标记之后 -->
