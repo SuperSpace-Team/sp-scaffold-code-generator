@@ -14,9 +14,5 @@ import com.yh.common.lark.orm.dao.supports.BaseDao;
  * @date: Created in xxx
  */
 public abstract class BaseRepository<MP extends BaseMapper<PO>, PO> extends ServiceImpl<MP, PO> {
-    /**
-     * 获取当前Dao接口对象
-     * @return
-     */
-    public abstract BaseDao getDao();
+
 }

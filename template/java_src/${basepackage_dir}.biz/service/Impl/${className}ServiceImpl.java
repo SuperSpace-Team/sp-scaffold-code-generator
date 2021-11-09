@@ -2,7 +2,13 @@
 <#assign className = table.className>
 <#assign classNameLower = className?uncap_first>
 
-package ${basepackage}.biz.service.impl;
+package ${basepackage}.biz.service.${subpackage}.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
 
 import com.yh.common.lark.common.dao.Page;
 import com.yh.common.lark.common.dao.Pagination;
@@ -10,16 +16,11 @@ import com.yh.common.lark.common.dao.Sort;
 
 import com.yh.infra.common.utils.bean.DozerUtil;
 import com.yh.infra.common.vo.BasePageQueryReqVO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Map;
-
-import ${basepackage}.biz.bo.${className}BO;
-import ${basepackage}.dao.po.DemoBizPO;
-import ${basepackage}.biz.service.${className}Service;
-import ${basepackage}.dao.repository.BizDemoRepository;
+import ${basepackage}.biz.bo.${subpackage}.${className}BO;
+import ${basepackage}.dao.po.${subpackage}.${className}PO;
+import ${basepackage}.biz.service.${subpackage}.${className}Service;
+import ${basepackage}.dao.repository.${subpackage}.${className}Repository;
 
 /**
  * @description: 业务Service实现类
@@ -27,9 +28,12 @@ import ${basepackage}.dao.repository.BizDemoRepository;
  * @date: Created in xxx
  */
 @Service
-public class ${className}ServiceImpl extends BaseBizServiceImpl<Long, ${className}BO> implements ${className}Service {
+public class ${className}ServiceImpl extends BaseBizServiceImpl<Long, ${className}BO, ${className}Dao> implements ${className}Service {
     @Autowired
     ${className}Repository ${classNameLower}Repository;
+
+    @Autowired
+    ${className}Dao ${classNameLower}Dao;
 
     /**
      * 保存单条记录
@@ -57,9 +61,10 @@ public class ${className}ServiceImpl extends BaseBizServiceImpl<Long, ${classNam
      */
     @Override
     public Pagination<${className}BO> query(Page page, Map<String, Object> param) {
+        //默认按更新时间排序
         Sort[] sorts = new Sort[1];
-        sorts[0] = new Sort("createTime", "DESC");
-        return DozerUtil.map(${className}Repository.getDao().findListByQueryMapWithPage(page, sorts, param), Pagination.class);
+        sorts[0] = new Sort("updateTime", "DESC");
+        return DozerUtil.map(${classNameLower}Dao.findListByQueryMapWithPage(page, sorts, param), Pagination.class);
     }
 
     /**
@@ -71,7 +76,7 @@ public class ${className}ServiceImpl extends BaseBizServiceImpl<Long, ${classNam
      */
     @Override
     public Pagination<${className}BO> getPageDataList(BasePageQueryReqVO basePageQueryVO) {
-        return DozerUtil.map(${className}Repository.getDao().findListByQueryMapWithPage(basePageQueryVO.getPage(),
+        return DozerUtil.map(${classNameLower}Dao.findListByQueryMapWithPage(basePageQueryVO.getPage(),
                 basePageQueryVO.getSorts(), basePageQueryVO.getParams()), Pagination.class);
     }
 }

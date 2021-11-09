@@ -1,18 +1,19 @@
 <#include "/java_copyright.include">
 <#assign className = table.className>
 
-package ${basepackage}.biz.service;
-
-import com.yh.common.lark.common.dao.Page;
-import com.yh.common.lark.common.dao.Pagination;
-import com.yh.infra.common.vo.BasePageQueryReqVO;
-import com.yh.scaffold.api.user.domain.bo.DemoBiz1BO;
+package ${basepackage}.biz.service.${subpackage};
 
 import java.util.List;
 import java.util.Map;
 
+import com.yh.common.lark.common.dao.Page;
+import com.yh.common.lark.common.dao.Pagination;
+import com.yh.infra.common.vo.BasePageQueryReqVO;
+import ${basepackage}.biz.bo.${subpackage}.${className}BO;
+import ${basepackage}.biz.service.BaseBizService;
+
 /**
- * @description: ${className}服务定义
+ * @description: ${className}业务服务定义
  * @author: xxx
  * @date: Created in xxx
  */

@@ -1,0 +1,31 @@
+<#include "/macro.include"/>
+<#assign className = table.className>   
+<#assign classNameFirstLower = table.classNameFirstLower>
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<#macro mapperEl value>${r"#{"}${value}}</#macro>
+
+<mapper namespace="${basepackage}.dao.mapper.${subpackage}.${className}Mapper">
+	<resultMap id="${className}Result" type="${basepackage}.dao.po.${subpackage}.${className}PO">
+	</resultMap>
+	
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="${classNameFirstLower}Columns">
+	    <![CDATA[
+		<#list table.columns as column>
+	        	${column.dbSqlName} as ${column.columnNameFirstLower}<#if column_has_next>,</#if>
+        </#list>
+	    ]]>
+	</sql>
+
+
+	<!-- 自定义SQL操作
+	<select id="findById" parameterType="${table.idColumn.javaType}" resultMap="${className}Result" flushCache="false">
+		select <include refid="${classNameFirstLower}Columns" />
+		from xxx
+		where xxxxx
+	</select>
+	-->
+</mapper>

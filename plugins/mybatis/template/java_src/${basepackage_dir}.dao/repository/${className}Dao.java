@@ -36,7 +36,7 @@ public interface ${className}Dao extends BaseDao<${className}PO,Long>{
 	Pagination<${className}PO> findListByQueryMapWithPage(Page page,Sort[] sorts,Map<String, Object> params);
 
 	/**
-	 * 新增或更新记录
+	 * 新增或更新单条记录
 	 * @param o
 	 * @return int
 	 */
@@ -45,7 +45,7 @@ public interface ${className}Dao extends BaseDao<${className}PO,Long>{
 
 	<#if table.versionColumn?? >
 	/**
-	 * 按version新增或更新记录
+	 * 按Version新增或更新记录
 	 * @param po
 	 * @return int
 	 */

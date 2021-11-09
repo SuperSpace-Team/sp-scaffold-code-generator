@@ -2,7 +2,7 @@
 <#include "/java_copyright.include">
 <#assign className = table.className>   
 <#assign classNameLower = className?uncap_first> 
-package ${basepackage}.biz.bo;
+package ${basepackage}.biz.bo.${subpackage};
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -15,6 +15,11 @@ import lombok.NoArgsConstructor;
 
 <#include "/java_imports.include">
 
+/**
+ * @description: ${className}业务操作POJO定义
+ * @author: xxx
+ * @date: Created in xxx
+ */
 @Data
 @NoArgsConstructor
 public class ${className}BO implements Serializable {

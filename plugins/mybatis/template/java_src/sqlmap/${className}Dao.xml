@@ -3,8 +3,7 @@
 <#assign classNameFirstLower = table.classNameFirstLower>
 
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
 <#macro mapperEl value>${r"#{"}${value}}</#macro>
 
@@ -20,8 +19,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/
         </#list>
 	    ]]>
 	</sql>
-	<#if table.isTable>
 
+	<#if table.isTable>
 		<!-- 如果有自增字段 -->
 		<#if table.hasAutoIncrementId>
 			<!-- 新增/插入操作 -->
@@ -129,32 +128,32 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/
 		       <if test="${column.columnNameFirstLower}!=null and ${column.columnNameFirstLower}!=''">
 					and ${column.dbSqlName} = <@mapperEl column.columnNameFirstLower/>
 				</if>
-			<#else>		
+			<#else>
 				<if test="${column.columnNameFirstLower}!=null">
 					and ${column.dbSqlName} = <@mapperEl column.columnNameFirstLower/>
 				</if>
 			</#if>
-	       </#list>			
+	       </#list>
 		</where>
 	</sql>
 
 	<!-- 获取查询结果集的记录数 -->
 	<select id="getCount" resultType="long">
-        select count(*) from ${table.sqlName} 
+        select count(*) from ${table.sqlName}
     </select>
 
 	<!-- 根据分页/排序/Map参数集合查询结果集记录数 -->
     <select id="findListCountByQueryMap" resultType="long">
-        select count(*) from ${table.sqlName} 
-		<include refid="${classNameFirstLower}DynamicWhere"/>    
+        select count(*) from ${table.sqlName}
+		<include refid="${classNameFirstLower}DynamicWhere"/>
     </select>
 
 	<!-- 根据一般参数集合查询记录列表 -->
     <select id="findListCountByParam" resultType="long">
-        select count(*) from ${table.sqlName} 
-		<include refid="${classNameFirstLower}DynamicWhere"/>    
+        select count(*) from ${table.sqlName}
+		<include refid="${classNameFirstLower}DynamicWhere"/>
     </select>
-    
+
     <!--
     	根据分页/排序/Map参数集合查询结果集记录列表:
     	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
@@ -162,29 +161,29 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/
     -->
     <select id="findListByQueryMapWithPage" resultMap="${className}Result">
     	select <include refid="${classNameFirstLower}Columns" />
-	    from ${table.sqlName} 
+	    from ${table.sqlName}
 		<include refid="${classNameFirstLower}DynamicWhere"/>
     </select>
 
 	<!-- 根据Map参数条件集合查询记录列表 -->
     <select id="findListByQueryMap" resultMap="${className}Result">
     	select <include refid="${classNameFirstLower}Columns" />
-	    from ${table.sqlName} 
+	    from ${table.sqlName}
 		<include refid="${classNameFirstLower}DynamicWhere"/>
-		
+
     </select>
 
 	<!-- 根据入参对象指定条件查询记录列表 -->
     <select id="findListByParam" resultMap="${className}Result">
     	select <include refid="${classNameFirstLower}Columns" />
-	    from ${table.sqlName} 
+	    from ${table.sqlName}
 		<include refid="${classNameFirstLower}DynamicWhere"/>
-		
+
     </select>
 
-	<!-- 根据入参对象指定条件查询单条记录 -->
     <#list table.columns as column>
     <#if column.unique && !column.pk>
+	<!-- 根据入参对象指定条件查询单条记录 -->
     <select id="getBy${column.columnName}" resultMap="${className}Result" parameterType="${column.javaType}">
 	    select <include refid="${classNameFirstLower}Columns"/>
 	    <![CDATA[
@@ -194,8 +193,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/
     </#if>
 	</#list>
 
-	<!-- 根据Version(版本号)更新记录指定字段 -->
 	<#if table.versionColumn??>
+	<!-- 根据Version(版本号)更新记录指定字段 -->
 	<update id="updateByVersion" parameterType="${basepackage}.dao.po.${subpackage}.${className}PO">
 	<![CDATA[
 		UPDATE ${table.sqlName} SET

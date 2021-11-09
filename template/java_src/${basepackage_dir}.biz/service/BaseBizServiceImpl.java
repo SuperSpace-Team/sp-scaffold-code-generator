@@ -26,91 +26,80 @@ import com.yh.infra.comp.core.validator.BizValidationManager;
  */
 @Slf4j
 @Service
-public class BaseBizServiceImpl<KEY, MODEL extends BaseBO> {
+public class BaseBizServiceImpl<KEY, BO extends BaseBO, DAO extends BaseDao> {
     @Autowired
     BizValidationManager validationManager;
 
     /**
-     * 获取model对应的表名
-     * @return
+     * 业务DAO操作实例
      */
-    protected String getTableName() {
-        throw new BusinessException("NOT IMPLEMENTED.");
-    };
+    @Autowired
+    DAO bizDao;
 
     /**
      * 获取DAO对象
      *
      * @return
      */
-    protected BaseDao<MODEL, Long> getDao() {
-        throw new RuntimeException("NOT IMPLEMENTED.");
-    };
+    protected BaseDao<BO, Long> getDao() {
+        throw bizDao;
+    }
 
     /**
      * 根据编码从DB中查询到PO实体
-     * 适用于DB表/实体带有业务编码字段的场景
+     * 适用于DB表/实体带有业务编码属性的场景
      * @param code
      * @return
      */
-    protected MODEL getModelByCode(Integer code) {
+    protected BO getModelByCode(Integer code) {
         throw new RuntimeException("NOT IMPLEMENTED.");
     };
 
     /**
      * 校验数据
      *
-     * @param model
+     * @param bo
      * @return
      */
-    protected void validate(MODEL model) {
-        List<Error> errors = validationManager.validate(model);
+    protected void validate(BO bo) {
+        List<Error> errors = validationManager.validate(bo);
         if (CollectionUtils.isNotEmpty(errors)) {
-            throw new BusinessException(
-                    SystemErrorCodeEnum.DATA_ENROLL_DB_ERROR.getCode(), errors.get(0).getMessage());
+            throw new BusinessException(SystemErrorCodeEnum.DATA_ENROLL_DB_ERROR.getCode(), errors.get(0).getMessage());
         }
     }
 
     /**
      * 通用更新操作
      *
-     * @param model
+     * @param bo
      */
-    public Boolean update(MODEL model) {
+    public Boolean update(BO bo) {
         //经各校验器检查
-        validate(model);
-
-        if (model.getId() == null) {
-            model.setVersion(1L);
-
-            try {
-                return getDao().insert(model) > 0;
-            } catch (Exception e) {
-                log.warn("BaseManagerImpl update error e="+e);
-                if (e instanceof DuplicateKeyException) {
-                    throw new BusinessException(SystemErrorCodeEnum.DATA_ENROLL_DB_ERROR.getCode(),
-                            "数据库中存在重复数据，请确保业务代码、名称等字段唯一存在" + model.getId());
-                } else {
-                    throw new BusinessException(SystemErrorCodeEnum.DATA_ENROLL_DB_ERROR.getCode(),
-                            SystemErrorCodeEnum.DATA_ENROLL_DB_ERROR.getMsg() + "请重试" + model.getId());
-                }
-            }
-        }
+        validate(bo);
 
         try {
-            int ret = getDao().update(model);
-            if (ret == 0) {
-                throw new BusinessException(SystemErrorCodeEnum.DATA_ENROLL_DB_ERROR.getCode(),
-                        "无法更新数据，可能是数据过期。" + model.getId());
+            if (bo.getId() == null) {
+                bo.setVersion(1L);
+
+                if(bizDao.insert(bo) == 0L) {
+                    throw new BusinessException(SystemErrorCodeEnum.DATA_ENROLL_DB_ERROR.getCode(),
+                            "更新/插入数据失败，请检查." + bo.getId());
+                }
+            } else {
+                if (bizDao.update(bo) == 0) {
+                    throw new BusinessException(SystemErrorCodeEnum.DATA_ENROLL_DB_ERROR.getCode(),
+                            "无法更新数据，可能是数据过期." + bo.getId());
+                }
             }
         } catch (Exception e) {
-            log.warn("BaseManagerImpl update error:"+e);
+            log.error("BaseManagerImpl update error, exception:" + e);
+
             if (e instanceof DuplicateKeyException) {
                 throw new BusinessException(SystemErrorCodeEnum.DATA_ENROLL_DB_ERROR.getCode(),
-                        "数据库中存在重复数据，请确保记录唯一存在" + model.getId());
+                        "数据库中存在重复数据，请确保记录唯一存在:" + bo.getId());
             } else {
                 throw new BusinessException(SystemErrorCodeEnum.DATA_ENROLL_DB_ERROR.getCode(),
-                        SystemErrorCodeEnum.DATA_ENROLL_DB_ERROR.getMsg() + "请重试" + model.getId());
+                        SystemErrorCodeEnum.DATA_ENROLL_DB_ERROR.getMsg() + "请重试:" + bo.getId());
             }
         }
 
@@ -149,20 +138,20 @@ public class BaseBizServiceImpl<KEY, MODEL extends BaseBO> {
 //     */
 //    protected Boolean changeStatus(KEY key, String operator, Boolean newStatus) {
 //        Integer code = (Integer) key;
-//        MODEL model = getModelByCode(code);
+//        BO bo = getModelByCode(code);
 //
 //        // 已经是目标状态，不需要更改
-//        if (newStatus.equals(model.getStatus())) {
+//        if (newStatus.equals(bo.getStatus())) {
 //            return true;
 //        }
 //
 //        //自行实现changeStatus() SQL查询
-//        int update = getDao().changeStatus(getTableName(), code, operator, newStatus, model.getVersion());
+//        int update = bizDao.changeStatus(getTableName(), code, operator, newStatus, bo.getVersion());
 //        // 更新成功
 //        if (update != 1) {
-//            model = getModelByCode(code);
+//            bo = getModelByCode(code);
 //            // 若被更新过,则不需要更新版本号
-//            if (newStatus.equals(model.getStatus())) {
+//            if (newStatus.equals(bo.getStatus())) {
 //                return true;
 //            }
 //

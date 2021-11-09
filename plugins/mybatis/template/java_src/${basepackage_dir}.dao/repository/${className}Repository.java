@@ -24,8 +24,4 @@ public class ${className}Repository extends BaseRepository<${className}Mapper, $
     @Autowired
     private ${className}Dao ${classNameLower}Dao;
 
-    @Override
-    public ${className}Dao getDao(){
-        return ${classNameLower}Dao;
-    }
 }
