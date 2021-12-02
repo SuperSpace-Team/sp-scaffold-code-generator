@@ -4,7 +4,6 @@
 
 package ${basepackage}.dao.po.${subpackage};
 
-<#include "/java_imports.include">
 import com.yh.infra.common.base.BasePO;
 import com.yh.infra.common.utils.DateUtil;
 import com.baomidou.mybatisplus.annotation.TableName;
