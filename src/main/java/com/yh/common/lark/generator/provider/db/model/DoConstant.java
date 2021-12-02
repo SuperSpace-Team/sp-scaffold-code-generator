@@ -1,20 +1,28 @@
 package com.yh.common.lark.generator.provider.db.model;
 
 public interface DoConstant {
-	public static final String YES = "y";
-	public static final String NO = "n";
-	public static final String CREATOR = "creator";
-	public static final String MODIFIER = "modifier";
-	public static final String IS_DELETED = "isDeleted";
-	public static final String GMT_CREATED = "gmtCreated";
-	public static final String GMT_MODIFIED = "gmtModified";
-	public static final String DB_CREATOR = "creator";
-	public static final String DB_MODIFIER = "modifier";
-	public static final String DB_IS_DELETED = "is_deleted";
-	public static final String DB_GMT_CREATE = "gmt_created";
-	public static final String DB_GMT_MODIFIED = "gmt_modified";
+	String YES = "y";
+	String NO = "n";
+
+	/**
+	 * 公共属性/字段定义
+	 * 锁标识和创建/更新人及其时间
+	 */
+	String VERSION = "version";
+	String CREATED_BY = "createdBy";
+	String UPDATED_BY = "updatedBy";
+	String IS_DELETE = "isDelete";
+	String CREATED_AT = "createdAt";
+	String UPDATED_AT = "updatedAt";
+
+	String DB_CREATOR = "createdBy";
+	String DB_MODIFIER = "updatedBy";
+	String DB_IS_DELETED = "is_delete";
+	String DB_GMT_CREATE = "created_at";
+	String DB_GMT_MODIFIED = "updated_at";
+
 	/**
 	 * 系统用户
 	 */
-	public static final Integer SYSTEM_USER = 0;
+	Integer SYSTEM_USER = 0;
 }

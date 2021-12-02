@@ -226,7 +226,7 @@ public class Table {
 		List results = new ArrayList();
 		for (Column c : getColumns()) {
 			if (!c.isPk()) {
-				if (false && StringUtils.equalsIgnoreCase(DoConstant.GMT_MODIFIED, c.getColumnName())) {
+				if (false && StringUtils.equalsIgnoreCase(DoConstant.UPDATED_AT, c.getColumnName())) {
 				} else {
 					results.add(c);
 				}
@@ -243,8 +243,8 @@ public class Table {
 		List results = new ArrayList();
 		for (Column c : getColumns()) {
 			if (!c.isPk()) {
-				if (StringUtils.equalsIgnoreCase(DoConstant.CREATOR, c.getColumnName())
-						|| StringUtils.equalsIgnoreCase(DoConstant.GMT_CREATED, c.getColumnName())) {
+				if (StringUtils.equalsIgnoreCase(DoConstant.CREATED_BY, c.getColumnName())
+						|| StringUtils.equalsIgnoreCase(DoConstant.CREATED_AT, c.getColumnName())) {
 				} else {
 					results.add(c);
 				}
@@ -261,11 +261,12 @@ public class Table {
 		List results = new ArrayList();
 		for (Column c : getColumns()) {
 			if (!c.isPk()) {
-				if (StringUtils.equalsIgnoreCase(DoConstant.CREATOR, c.getColumnName())
-						|| StringUtils.equalsIgnoreCase(DoConstant.IS_DELETED, c.getColumnName())
-						|| StringUtils.equalsIgnoreCase(DoConstant.MODIFIER, c.getColumnName())
-						|| StringUtils.equalsIgnoreCase(DoConstant.GMT_CREATED, c.getColumnName())
-						|| StringUtils.equalsIgnoreCase(DoConstant.GMT_MODIFIED, c.getColumnName())) {
+				if (StringUtils.equalsIgnoreCase(DoConstant.CREATED_BY, c.getColumnName())
+						|| StringUtils.equalsIgnoreCase(DoConstant.IS_DELETE, c.getColumnName())
+						|| StringUtils.equalsIgnoreCase(DoConstant.UPDATED_BY, c.getColumnName())
+						|| StringUtils.equalsIgnoreCase(DoConstant.CREATED_AT, c.getColumnName())
+						|| StringUtils.equalsIgnoreCase(DoConstant.UPDATED_AT, c.getColumnName())
+						|| StringUtils.equalsIgnoreCase(DoConstant.VERSION, c.getColumnName())) {
 				} else {
 					results.add(c);
 				}

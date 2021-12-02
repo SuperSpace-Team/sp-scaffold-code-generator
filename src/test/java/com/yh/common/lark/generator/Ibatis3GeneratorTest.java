@@ -11,11 +11,11 @@ import org.junit.Test;
 
 public class Ibatis3GeneratorTest extends GeneratorTestCase {
 
-	private static String[] tableNameKeys = { "t_filter_info", "t_filter_param_info", "t_instance_filter_cfg","t_instance_filter_param_cfg" };
+	private static String[] tableNameKeys = { "t_cluster_env_info", "t_route_group_info" };
 	
 	//如果为{}则表使用用默认的方式生成class name
 	//如 sys_dictionary,默认class name为 SysDictionary
-	private static String[] classNameKeys = { "FilterInfo", "FilterParamInfo", "InstanceFilterCfg", "InstanceFilterParamCfg" };
+	private static String[] classNameKeys = { "ClusterEnvInfo", "RouteGroupInfo"};
 
 	//是否有自增ID，如果没有，则需要在insert语句中将id包含进去
 	private static boolean hasAutoIncrementId=true;
@@ -23,7 +23,7 @@ public class Ibatis3GeneratorTest extends GeneratorTestCase {
 	/**
 	 * version字段，用于update by version
 	 */
-	private static String[] versionNames={"updateTime"};
+	private static String[] versionNames={"updatedAt"};
 	
 	@Test
 	public void testAll() throws Exception {

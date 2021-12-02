@@ -37,6 +37,7 @@ logs/
 .idea
 .flattened-pom.xml
 .DS_Store
-/java_src
-/java_test
-/insert_demo
+/java_src/
+/java_test/
+/insert_demo/
+/java_test/
