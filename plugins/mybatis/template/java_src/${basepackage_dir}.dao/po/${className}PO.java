@@ -10,6 +10,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 <#include "/java_imports.include">
 import com.yh.infra.common.base.BasePO;
+import com.yh.infra.common.utils.DateUtil;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import lombok.Data;
@@ -24,24 +25,25 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @TableName("${table.sqlName}")
-public class ${className}PO extends BasePO {
+public class ${className}PO extends BasePO{
 
 	<#list table.notDefaultColumns as column>
 	private ${column.javaType} ${column.columnNameLower};
 	</#list>
 
-<@generateJavaColumns/>
+	<@generateJavaColumns/>
 
-<#macro generateJavaColumns>
-	<#list table.notDefaultColumns as column>
+	<#macro generateJavaColumns>
+		<#list table.notDefaultColumns as column>
 		<#if column.isDateTimeColumn>
-	public String get${column.columnName}String() {
-		return date2String(get${column.columnName}(), DATE_TIME_FORMAT);
-	}
-	public void set${column.columnName}String(String value) {
-		set${column.columnName}(string2Date(value, DATE_TIME_FORMAT,${column.javaType}.class));
-	}
-	
+			public String get${column.columnName}String(){
+				return DateUtil.formatDate(get${column.columnName}(),DateUtil.YMD_HMS);
+			}
+
+			public void set${column.columnName}String(String value){
+				set${column.columnName}(DateUtil.parse(value,DateUtil.YMD_HMS));
+			}
 		</#if>
-	</#list>
-</#macro>
+		</#list>
+	</#macro>
+}
