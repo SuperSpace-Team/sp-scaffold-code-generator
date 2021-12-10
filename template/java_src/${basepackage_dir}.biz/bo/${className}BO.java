@@ -1,7 +1,7 @@
 <#include "/macro.include"/>
 <#include "/java_copyright.include">
 <#assign className = table.className>   
-<#assign classNameLower = className?uncap_first> 
+<#assign classNameLower = className?uncap_first>
 package ${basepackage}.biz.bo.${subpackage};
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -12,6 +12,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.yh.infra.common.bo.BaseBO;
 
 <#include "/java_imports.include">
 
@@ -22,7 +23,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class ${className}BO implements Serializable {
+public class ${className}BO extends BaseBO {
 	
 	<@generateFields/>
 	<@generateProperties/>

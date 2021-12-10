@@ -63,7 +63,7 @@ public class ${className}ServiceImpl extends BaseBizServiceImpl<Long, ${classNam
     public Pagination<${className}BO> query(Page page, Map<String, Object> param) {
         //默认按更新时间排序
         Sort[] sorts = new Sort[1];
-        sorts[0] = new Sort("updateTime", "DESC");
+        sorts[0] = new Sort("updated_at", "DESC");
         return DozerUtil.map(${classNameLower}Dao.findListByQueryMapWithPage(page, sorts, param), Pagination.class);
     }
 
