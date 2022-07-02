@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>lark</groupId>
-  <artifactId>lark-generator</artifactId>
+  <groupId>com.sp.scaffold.generator</groupId>
+  <artifactId>sp-scaffold-code-generator</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <name>lark-generator</name>
+  <name>sp-scaffold-code-generator</name>
   
   <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,16 +23,16 @@
 		<selenium.version>2.0a2</selenium.version>
 		<jackson.version>1.6.2</jackson.version>
 		<jersey.version>1.1.5.1</jersey.version>
-	  	<yh.base.dependencies.version>1.0.0-SNAPSHOT</yh.base.dependencies.version>
-	  	<yh-infra-comp-core.version>1.0.0-SNAPSHOT</yh-infra-comp-core.version>
+	  	<sp.base.dependencies.version>1.0.0-SNAPSHOT</sp.base.dependencies.version>
+	  	<sp-infra-comp-core.version>1.0.0-SNAPSHOT</sp-infra-comp-core.version>
   </properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>com.yh.base</groupId>
-				<artifactId>yh-base-dependencies</artifactId>
-				<version>${yh.base.dependencies.version}</version>
+				<groupId>com.sp.base</groupId>
+				<artifactId>sp-base-dependencies</artifactId>
+				<version>${sp.base.dependencies.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -40,6 +40,17 @@
 	</dependencyManagement>
 
   	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
@@ -182,17 +193,17 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-		  <groupId>com.yh.common</groupId>
-		  <artifactId>yh-lark-orm</artifactId>
+		  <groupId>com.sp.framework</groupId>
+		  <artifactId>sp-framework-lark-orm</artifactId>
 	  </dependency>
 	  <dependency>
-		  <groupId>com.yh.infra.common</groupId>
-		  <artifactId>yh-infra-common-lib</artifactId>
+		  <groupId>com.sp.framework</groupId>
+		  <artifactId>sp-framework-common</artifactId>
 	  </dependency>
 		<dependency>
-			<groupId>com.yh.infra.comp</groupId>
-			<artifactId>yh-infra-comp-core</artifactId>
-			<version>${yh-infra-comp-core.version}</version>
+			<groupId>com.sp.infra.comp</groupId>
+			<artifactId>sp-infra-comp-core</artifactId>
+			<version>${sp-infra-comp-core.version}</version>
 		</dependency>
   	</dependencies>
   	
