@@ -1,7 +1,7 @@
-import com.yh.common.lark.common.annotation.CommonQuery;
-import com.yh.common.lark.common.annotation.QueryPage;
-import com.yh.common.lark.common.dao.Page;
-import com.yh.common.lark.common.dao.Pagination;
-import com.yh.common.lark.common.dao.Sort;
-import com.yh.common.lark.orm.dao.supports.BaseDao;
+import com.sp.framework.orm.lark.common.annotation.CommonQuery;
+import com.sp.framework.orm.lark.common.annotation.QueryPage;
+import com.sp.framework.orm.lark.common.dao.Page;
+import com.sp.framework.orm.lark.common.dao.Pagination;
+import com.sp.framework.orm.lark.common.dao.Sort;
+import com.sp.framework.orm.lark.orm.dao.supports.BaseDao;
 import org.apache.ibatis.annotations.*;

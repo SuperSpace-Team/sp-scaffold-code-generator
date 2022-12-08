@@ -11,11 +11,11 @@ import org.junit.Test;
 
 public class Ibatis3GeneratorTest extends GeneratorTestCase {
 
-	private static String[] tableNameKeys = { "dyeing_rule_group", "dyeing_node_rules" };
+	private static String[] tableNameKeys = { "process_node_rule_cfg"};
 	
 	//如果为{}则表使用用默认的方式生成class name
 	//如 sys_dictionary,默认class name为 SysDictionary
-	private static String[] classNameKeys = { "DyeingRuleGroup", "DyeingNodeRules"};
+	private static String[] classNameKeys = { "ProcessNodeRuleCfg"};
 
 	//是否有自增ID，如果没有，则需要在insert语句中将id包含进去
 	private static boolean hasAutoIncrementId=true;
@@ -23,7 +23,7 @@ public class Ibatis3GeneratorTest extends GeneratorTestCase {
 	/**
 	 * version字段，用于update by version
 	 */
-	private static String[] versionNames={"updatedAt"};
+	private static String[] versionNames={"version"};
 	
 	@Test
 	public void testAll() throws Exception {

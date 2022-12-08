@@ -2,10 +2,10 @@
 <#assign className = table.className>   
 <#assign classNameLower = className?uncap_first>
 
-package ${basepackage}.dao.po.${subpackage};
+package ${basepackage}.domain.po.${subpackage};
 
-import com.yh.infra.common.base.BasePO;
-import com.yh.infra.common.utils.DateUtil;
+import com.sp.framework.common.base.BasePO;
+import com.sp.framework.common.utils.DateUtil;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import lombok.Data;
@@ -29,16 +29,16 @@ public class ${className}PO extends BasePO {
 	<@generateJavaColumns/>
 
 	<#macro generateJavaColumns>
-		<#list table.notDefaultColumns as column>
-		<#if column.isDateTimeColumn>
-			public String get${column.columnName}String(){
-				return DateUtil.formatDate(get${column.columnName}(),DateUtil.YMD_HMS);
-			}
+	<#list table.notDefaultColumns as column>
+	<#if column.isDateTimeColumn>
+	public String get${column.columnName}String(){
+		return DateUtil.formatDate(get${column.columnName}(),DateUtil.YMD_HMS);
+	}
 
-			public void set${column.columnName}String(String value){
-				set${column.columnName}(DateUtil.parse(value,DateUtil.YMD_HMS));
-			}
-		</#if>
-		</#list>
+	public void set${column.columnName}String(String value){
+		set${column.columnName}(DateUtil.parse(value,DateUtil.YMD_HMS));
+	}
+	</#if>
+	</#list>
 	</#macro>
 }

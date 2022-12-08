@@ -6,7 +6,7 @@ package ${basepackage}.dao.repository;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.yh.common.lark.orm.dao.supports.BaseDao;
+import com.sp.framework.orm.lark.orm.dao.supports.BaseDao;
 
 /**
  * @description: 抽象公共仓储类

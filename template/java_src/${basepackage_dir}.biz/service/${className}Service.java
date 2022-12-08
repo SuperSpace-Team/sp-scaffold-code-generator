@@ -6,9 +6,9 @@ package ${basepackage}.biz.service.${subpackage};
 import java.util.List;
 import java.util.Map;
 
-import com.yh.common.lark.common.dao.Page;
-import com.yh.common.lark.common.dao.Pagination;
-import com.yh.infra.common.vo.BasePageQueryReqVO;
+import com.sp.framework.orm.lark.common.dao.Page;
+import com.sp.framework.orm.lark.common.dao.Pagination;
+import com.sp.framework.common.vo.BasePageQueryReqVO;
 import ${basepackage}.biz.bo.${subpackage}.${className}BO;
 import ${basepackage}.biz.service.BaseBizService;
 

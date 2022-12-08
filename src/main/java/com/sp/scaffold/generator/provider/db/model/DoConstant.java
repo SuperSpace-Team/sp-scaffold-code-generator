@@ -11,13 +11,13 @@ public interface DoConstant {
 	String VERSION = "version";
 	String CREATED_BY = "createdBy";
 	String UPDATED_BY = "updatedBy";
-	String IS_DELETE = "isDelete";
+	String IS_DELETE = "isDeleted";
 	String CREATED_AT = "createdAt";
 	String UPDATED_AT = "updatedAt";
 
 	String DB_CREATOR = "createdBy";
 	String DB_MODIFIER = "updatedBy";
-	String DB_IS_DELETED = "is_delete";
+	String DB_IS_DELETED = "is_deleted";
 	String DB_GMT_CREATE = "created_at";
 	String DB_GMT_MODIFIED = "updated_at";
 

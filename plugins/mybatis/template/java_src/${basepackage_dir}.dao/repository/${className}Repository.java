@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import ${basepackage}.dao.po.${subpackage}.${className}PO;
+import ${basepackage}.domain.po.${subpackage}.${className}PO;
 import ${basepackage}.dao.mapper.${subpackage}.${className}Mapper;
-import ${basepackage}.dao.repository.BaseRepository;
+import ${basepackage}.dao.repository.base.BaseRepository;
 
 /**
  * @description: 【非必需】业务操作仓储实现类

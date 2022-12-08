@@ -16,8 +16,8 @@ import com.sp.scaffold.generator.util.StringHelper;
  * @email 
  */
 public class Column {
-	protected static String[] defaultColumnNames = new String[] { "id", "is_deleted", "gmt_modified", "gmt_created",
-			"creator", "modifier" };
+	protected static String[] defaultColumnNames = new String[] { "id", "is_deleted", "updated_at", "created_at",
+			"created_by", "updated_by" };
 	/**
 	 * Reference to the containing table
 	 */

@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import com.yh.common.lark.orm.dao.supports.BaseDao;
-import com.yh.infra.common.bo.BaseBO;
-import com.yh.infra.common.enums.SystemErrorCodeEnum;
-import com.yh.infra.common.exception.BusinessException;
-import com.yh.infra.comp.core.validator.BizValidationManager;
+import com.sp.framework.orm.lark.orm.dao.supports.BaseDao;
+import com.sp.framework.common.bo.BaseBO;
+import com.sp.framework.common.enums.SystemErrorCodeEnum;
+import com.sp.framework.common.exception.BusinessException;
+import com.sp.infra.comp.core.validator.BizValidationManager;
 
 /**
  * @description: 【参考使用(非必需)】基础业务实现类

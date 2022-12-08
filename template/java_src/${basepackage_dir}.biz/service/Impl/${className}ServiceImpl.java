@@ -10,15 +10,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-import com.yh.common.lark.common.dao.Page;
-import com.yh.common.lark.common.dao.Pagination;
-import com.yh.common.lark.common.dao.Sort;
+import com.sp.framework.orm.lark.common.dao.Page;
+import com.sp.framework.orm.lark.common.dao.Pagination;
+import com.sp.framework.orm.lark.common.dao.Sort;
 
-import com.yh.infra.common.utils.bean.DozerUtil;
-import com.yh.infra.common.vo.BasePageQueryReqVO;
+import com.sp.infra.common.utils.bean.DozerUtil;
+import com.sp.framework.common.base;
 
 import ${basepackage}.biz.bo.${subpackage}.${className}BO;
-import ${basepackage}.dao.po.${subpackage}.${className}PO;
+import ${basepackage}.domain.po.${subpackage}.${className}PO;
 import ${basepackage}.biz.service.${subpackage}.${className}Service;
 import ${basepackage}.dao.repository.${subpackage}.${className}Repository;
 

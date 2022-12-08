@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-import ${basepackage}.dao.po.${subpackage}.${className}PO;
+import ${basepackage}.domain.po.${subpackage}.${className}PO;
 
 /**
  * @description: 业务Mapper类定义

@@ -10,7 +10,7 @@ package ${basepackage}.dao.repository.${subpackage};
 
 import java.util.Map;
 
-import ${basepackage}.dao.po.${subpackage}.${className}PO;
+import ${basepackage}.domain.po.${subpackage}.${className}PO;
 
 public interface ${className}Dao extends BaseDao<${className}PO,Long>{
 	<#list table.columns as column>
@@ -37,7 +37,7 @@ public interface ${className}Dao extends BaseDao<${className}PO,Long>{
 
 	/**
 	 * 新增或更新单条记录
-	 * @param o
+	 * @param po
 	 * @return int
 	 */
 	@CommonQuery

@@ -1,14 +1,13 @@
 <#include "/macro.include"/>
 <#assign className = table.className>   
 <#assign classNameFirstLower = table.classNameFirstLower>
-
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <#macro mapperEl value>${r"#{"}${value}}</#macro>
 
 <mapper namespace="${basepackage}.dao.repository.${subpackage}.${className}Dao">
-	<resultMap id="${className}Result" type="${basepackage}.dao.po.${subpackage}.${className}PO">
+	<resultMap id="${className}Result" type="${basepackage}.domain.po.${subpackage}.${className}PO">
 	</resultMap>
 	
 	<!-- 用于select查询公用抽取的列 -->
@@ -25,7 +24,7 @@
 		<#if table.hasAutoIncrementId>
 			<!-- 新增/插入操作 -->
     		<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
-			<insert id="insert" parameterType="${basepackage}.dao.po.${subpackage}.${className}PO"
+			<insert id="insert" parameterType="${basepackage}.domain.po.${subpackage}.${className}PO"
 				useGeneratedKeys="true" keyProperty="${table.idColumn.columnNameFirstLower}"
 			 flushCache="true">
 		    <![CDATA[
@@ -45,7 +44,7 @@
 		<#else>
 			<!-- 新增/插入操作 -->
 			<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
-			<insert id="insert" parameterType="${basepackage}.dao.po.${subpackage}.${className}PO"
+			<insert id="insert" parameterType="${basepackage}.domain.po.${subpackage}.${className}PO"
 			 flushCache="true">
 		    <![CDATA[
 		        INSERT INTO
@@ -65,7 +64,7 @@
 	    </#if>
 
 		<!-- 更新操作 -->
-		<update id="update" parameterType="${basepackage}.dao.po.${subpackage}.${className}PO">
+		<update id="update" parameterType="${basepackage}.domain.po.${subpackage}.${className}PO">
 	    <![CDATA[
 	        UPDATE ${table.sqlName} SET
 		        <#list table.updateColumns as column>
@@ -195,7 +194,7 @@
 
 	<#if table.versionColumn??>
 	<!-- 根据Version(版本号)更新记录指定字段 -->
-	<update id="updateByVersion" parameterType="${basepackage}.dao.po.${subpackage}.${className}PO">
+	<update id="updateByVersion" parameterType="${basepackage}.domain.po.${subpackage}.${className}PO">
 	<![CDATA[
 		UPDATE ${table.sqlName} SET
 			<#list table.updateColumns as column>

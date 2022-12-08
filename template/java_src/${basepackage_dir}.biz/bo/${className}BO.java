@@ -12,7 +12,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.yh.infra.common.bo.BaseBO;
+import com.sp.framework.common.bo.BaseBO;
 
 <#include "/java_imports.include">
 
